@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-export default (_props) => (
+export default (_props: any) => (
   <div className="container h-100">
     <div className="row h-100 align-items-center justify-content-center">
       <div className="col-auto">

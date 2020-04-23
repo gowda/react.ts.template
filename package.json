@@ -1,26 +1,37 @@
 {
-  "name": "react.template",
+  "name": "react.ts.template",
   "version": "0.42.0",
-  "description": "react application template",
-  "main": "index.js",
+  "description": "react application template in typescript",
+  "main": "src/index.ts",
   "scripts": {
-    "lint": "eslint --ext .js --ext .jsx src/ features/",
-    "build": "webpack --mode production --config webpack.production.js",
-    "server": "webpack-dev-server --mode development --config webpack.development.js",
-    "features": "NODE_ENV='test' cucumber-js npx cucumber-js --require-module @babel/register features/app.feature",
+    "lint": "tslint --config tslint.json --project tsconfig.json",
+    "build": "webpack --require ts-node/register --mode production --config webpack.production.ts",
+    "server": "webpack-dev-server --require ts-node/register --mode development --config webpack.development.ts",
+    "features": "NODE_ENV='test' cucumber-js --require-module ts-node/register --require features/steps/**/*.ts features",
     "test": "jest"
   },
   "keywords": [],
   "author": "Basavanagowda Kanur <basavanagowda@gmail.com>",
   "license": "Beerware",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "@babel/register": "^7.9.0",
-    "babel-loader": "^8.1.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/chai": "^4.2.11",
+    "@types/copy-webpack-plugin": "^5.0.0",
+    "@types/cucumber": "^6.0.1",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/html-webpack-plugin": "^3.2.2",
+    "@types/html-webpack-tags-plugin": "^2.0.16",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/selenium-webdriver": "^4.0.9",
+    "@types/webpack": "^4.41.12",
+    "@types/webpack-dev-server": "^3.10.1",
+    "@types/webpack-merge": "^4.1.5",
     "chai": "^4.2.0",
     "chromedriver": "^80.0.0",
     "copy-webpack-plugin": "^5.1.1",
@@ -37,6 +48,12 @@
     "html-webpack-tags-plugin": "^2.0.17",
     "jest": "^25.4.0",
     "selenium-webdriver": "^4.0.0-alpha.7",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^7.0.1",
+    "ts-node": "^8.9.0",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3",
+    "typescript-tslint-plugin": "^0.5.5",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
@@ -50,7 +67,8 @@
   "jest": {
     "verbose": true,
     "setupFilesAfterEnv": [
-      "<rootDir>src/setupTests.js"
-    ]
+      "<rootDir>src/setupTests.ts"
+    ],
+    "testEnvironment": "node"
   }
 }

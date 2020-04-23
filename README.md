@@ -1,15 +1,15 @@
-# react.template
-![](https://github.com/gowda/react.template/workflows/lint-and-tests/badge.svg)
-![](https://github.com/gowda/react.template/workflows/features/badge.svg)
+# react.ts.template
+![](https://github.com/gowda/react.ts.template/workflows/lint-and-tests/badge.svg)
+![](https://github.com/gowda/react.ts.template/workflows/features/badge.svg)
 
-template for react application.
+template for react application in typescript.
 
 ## Usage
 `react-app` is assumed as name of the application to be created.
 
 #### Clone the repository
 ```bash
-$ git clone git@github.com:gowda/react.template.git react-app
+$ git clone git@github.com:gowda/react.ts.template.git react-app
 $ cd react-app
 ```
 
@@ -24,16 +24,15 @@ $ npm run server
 ```
 
 Development server listens at [http://localhost:3000](http://localhost:3000).
-Can be changed by updating [webpack.development.js](webpack.development.js#L13).
+Can be changed by updating [webpack.development.ts](webpack.development.ts#L12).
 
 #### Run linter
 ```bash
 $ npm run lint
 ```
 
-[ESLint](https://eslint.org/) is configured to extend from
-[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
-& [eslint-config-airbnb](https://github.com/airbnb/javascript)
+[TSLint](https://palantir.github.io/tslint/) is configured to extend from
+[tslint:recommended](https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts)
 
 Configuratin is in [.eslintrc.js](.eslintrc.js)
 

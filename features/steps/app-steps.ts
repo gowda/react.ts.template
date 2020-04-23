@@ -3,15 +3,16 @@ import {
   Given, Then, After,
 } from 'cucumber';
 
-import * as seleniumWebdriver from 'selenium-webdriver';
+import * as selenium from 'selenium-webdriver';
 import * as chrome from 'selenium-webdriver/chrome';
 import { expect } from 'chai';
 
+// tslint:disable-next-line: no-var-requires
 require('chromedriver');
 
 After(function() {
   if (this.driver) {
-    return this.driver.quit().then((resp) => {
+    return this.driver.quit().then((resp: any) => {
       this.driver = null;
       return resp;
     });
@@ -20,12 +21,12 @@ After(function() {
   return null;
 });
 
-Given('I navigate to the url {string}', function(url) {
+Given('I navigate to the url {string}', function(url: string) {
   const chromeOptions = new chrome.Options().headless();
   chromeOptions.addArguments('window-size=1440,900');
 
-  this.driver = new seleniumWebdriver.Builder()
-    .withCapabilities(seleniumWebdriver.Capabilities.chrome())
+  this.driver = new selenium.Builder()
+    .withCapabilities(selenium.Capabilities.chrome())
     .setChromeOptions(chromeOptions)
     .build();
 
@@ -36,7 +37,7 @@ Then('I should see the text {string}', function(expected) {
   const world = this;
 
   return world.driver.findElement(By.tagName('h1'))
-    .then((node) => world.driver.wait(until.elementIsVisible(node)))
-    .then((node) => node.getText())
-    .then((text) => expect(text).to.have.string(expected));
+    .then((node: selenium.WebElement) => world.driver.wait(until.elementIsVisible(node)))
+    .then((node: selenium.WebElement) => node.getText())
+    .then((text: string) => expect(text).to.have.string(expected));
 });
