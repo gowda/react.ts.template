@@ -34,7 +34,7 @@ $ npm run lint
 [TSLint](https://palantir.github.io/tslint/) is configured to extend from
 [tslint:recommended](https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts)
 
-Configuratin is in [.eslintrc.js](.eslintrc.js)
+Configuratin is in [tslint.json](tslint.json)
 
 #### Run unit tests
 ```bash
