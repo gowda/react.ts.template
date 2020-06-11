@@ -20,7 +20,7 @@ $ npm install
 
 #### Run development server
 ```
-$ npm run server
+$ npm run start
 ```
 
 Development server listens at [http://localhost:3000](http://localhost:3000).

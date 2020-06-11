@@ -3,10 +3,11 @@
   "version": "0.42.0",
   "description": "react application template in typescript",
   "main": "src/index.ts",
+  "repository": "github:gowda/react.ts.template",
   "scripts": {
     "lint": "tslint --config tslint.json --project tsconfig.json",
     "build": "webpack --require ts-node/register --mode production --config webpack.production.ts",
-    "server": "webpack-dev-server --require ts-node/register --mode development --config webpack.development.ts",
+    "start": "webpack-dev-server --require ts-node/register --mode development --config webpack.development.ts",
     "features": "NODE_ENV='test' cucumber-js --require-module ts-node/register --require features/steps/**/*.ts features",
     "test": "jest"
   },
