@@ -6,11 +6,12 @@
   "scripts": {
     "lint": "tslint --config tslint.json --project tsconfig.json",
     "build": "webpack --require ts-node/register --mode production --config webpack.production.ts",
-    "server": "webpack-dev-server --require ts-node/register --mode development --config webpack.development.ts",
+    "start": "webpack-dev-server --require ts-node/register --mode development --config webpack.development.ts",
     "features": "NODE_ENV='test' cucumber-js --require-module ts-node/register --require features/steps/**/*.ts features",
     "test": "jest"
   },
   "keywords": [],
+  "repository": "github:gowda/react.ts.template",
   "author": "Basavanagowda Kanur <basavanagowda@gmail.com>",
   "license": "Beerware",
   "devDependencies": {
@@ -56,7 +57,7 @@
     "typescript-tslint-plugin": "^0.5.5",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2",
     "write-file-webpack-plugin": "^4.5.1"
   },
