@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default (_props: any) => (
+export default () => (
   <div className="container h-100">
     <div className="row h-100 align-items-center justify-content-center">
       <div className="col-auto">

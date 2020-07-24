@@ -1,14 +1,8 @@
 module.exports = {
-  rules: {
-    'func-names': ['error', 'never'],
-    'import/no-extraneous-dependencies': ['error', {'devDependencies': ['features/**/*.js']}],
-    "space-before-function-paren": [
-      "error",
-      {
-        "anonymous": "never",
-        "named": "never",
-        "asyncArrow": "always"
-      }
-    ],
-  },
-};
+    overrides: [{
+        files: ['*.ts'],
+        rules: {
+            'func-names': 0
+        }
+    }]
+}
