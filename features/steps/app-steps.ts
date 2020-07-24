@@ -7,8 +7,6 @@ import * as selenium from 'selenium-webdriver';
 import * as chrome from 'selenium-webdriver/chrome';
 import { expect } from 'chai';
 
-require('chromedriver');
-
 After(function () {
   if (this.driver) {
     return this.driver.quit().then((resp: any) => {
