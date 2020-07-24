@@ -49,7 +49,7 @@ $ npm run features
 Server running at [http://localhost:3000](http://localhost:3000) is required
 for cucumber tests. Run `webpack-dev-server` using:
 ```bash
-$ npm run server
+$ npm run start
 ```
 
 ## License
