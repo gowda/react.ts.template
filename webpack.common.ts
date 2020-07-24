@@ -16,8 +16,8 @@ const config: Configuration = {
       {
         enforce: 'pre',
         test: /\.js$/,
-        loader: 'source-map-loader'
-      }
+        loader: 'source-map-loader',
+      },
     ],
   },
   resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
@@ -33,6 +33,6 @@ const config: Configuration = {
     }),
     new HtmlWebpackTagsPlugin({ tags: ['custom.css'], append: true, publicPath: '/css' }),
   ],
-}
+};
 
 export default config;

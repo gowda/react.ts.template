@@ -31,15 +31,14 @@ Can be changed by updating [webpack.development.ts](webpack.development.ts#L12).
 $ npm run lint
 ```
 
-[TSLint](https://palantir.github.io/tslint/) is configured to extend from
-[tslint:recommended](https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts)
-
-Configuratin is in [tslint.json](tslint.json)
-
 #### Run unit tests
 ```bash
 $ npm run test
 ```
+[ESLint](https://eslint.org/) is configured to extend from
+[eslint-config-airbnb-typescript](https://github.com/airbnb/javascript)
+
+Configuratin is in [.eslintrc.js](.eslintrc.js)
 
 #### Run cucumber tests
 ```bash

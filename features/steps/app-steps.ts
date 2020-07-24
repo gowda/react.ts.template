@@ -7,10 +7,9 @@ import * as selenium from 'selenium-webdriver';
 import * as chrome from 'selenium-webdriver/chrome';
 import { expect } from 'chai';
 
-// tslint:disable-next-line: no-var-requires
 require('chromedriver');
 
-After(function() {
+After(function () {
   if (this.driver) {
     return this.driver.quit().then((resp: any) => {
       this.driver = null;
@@ -21,7 +20,7 @@ After(function() {
   return null;
 });
 
-Given('I navigate to the url {string}', function(url: string) {
+Given('I navigate to the url {string}', function (url: string) {
   const chromeOptions = new chrome.Options().headless();
   chromeOptions.addArguments('window-size=1440,900');
 
@@ -33,7 +32,7 @@ Given('I navigate to the url {string}', function(url: string) {
   return this.driver.get(url);
 });
 
-Then('I should see the text {string}', function(expected) {
+Then('I should see the text {string}', function (expected) {
   const world = this;
 
   return world.driver.findElement(By.tagName('h1'))

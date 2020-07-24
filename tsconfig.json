@@ -25,16 +25,6 @@
 
     "typeRoots": [
       "./types", "node_modules/@types"
-    ],
-
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin",
-        "alwaysShowRuleFailuresAsWarnings": false,
-        "ignoreDefinitionFiles": true,
-        "suppressWhileTypeErrorsPresent": false,
-        "configFile": "../tslint.json"
-      }
     ]
   },
   "exclude": ["./types", "node_modules"]
