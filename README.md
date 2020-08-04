@@ -45,12 +45,6 @@ Configuratin is in [.eslintrc.js](.eslintrc.js)
 $ npm run features
 ```
 
-Server running at [http://localhost:3000](http://localhost:3000) is required
-for cucumber tests. Run `webpack-dev-server` using:
-```bash
-$ npm run start
-```
-
 ## License
 
 > "THE BEER-WARE LICENSE" (Revision 42):
