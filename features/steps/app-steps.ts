@@ -18,7 +18,7 @@ After(function () {
   return null;
 });
 
-Given('I navigate to the url {string}', function (url: string) {
+Given('I navigate to the url {string}', function (path: string) {
   const chromeOptions = new chrome.Options().headless();
   chromeOptions.addArguments('window-size=1440,900');
 
@@ -27,14 +27,13 @@ Given('I navigate to the url {string}', function (url: string) {
     .setChromeOptions(chromeOptions)
     .build();
 
-  return this.driver.get(url);
+  return this.driver.get(`file://${__dirname}/../../dist/${path}`);
 });
 
 Then('I should see the text {string}', function (expected) {
   const world = this;
 
-  return world.driver.findElement(By.tagName('h1'))
-    .then((node: selenium.WebElement) => world.driver.wait(until.elementIsVisible(node)))
+  return world.driver.wait(until.elementLocated(By.tagName('h1')))
     .then((node: selenium.WebElement) => node.getText())
     .then((text: string) => expect(text).to.have.string(expected));
 });

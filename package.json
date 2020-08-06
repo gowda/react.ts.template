@@ -7,6 +7,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "build": "webpack --require ts-node/register --mode production --config webpack.production.ts",
     "start": "webpack-dev-server --require ts-node/register --mode development --config webpack.development.ts",
+    "prefeatures": "NODE_ENV='test' npm run build",
     "features": "NODE_ENV='test' cucumber-js --require-module ts-node/register --require features/steps/**/*.ts features",
     "test": "jest"
   },
