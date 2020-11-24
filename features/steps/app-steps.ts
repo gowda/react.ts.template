@@ -1,7 +1,5 @@
 import { By, until } from 'selenium-webdriver';
-import {
-  Given, Then, After,
-} from 'cucumber';
+import { Given, Then, After } from 'cucumber';
 
 import * as selenium from 'selenium-webdriver';
 import * as chrome from 'selenium-webdriver/chrome';
@@ -33,7 +31,8 @@ Given('I navigate to the url {string}', function (path: string) {
 Then('I should see the text {string}', function (expected) {
   const world = this;
 
-  return world.driver.wait(until.elementLocated(By.tagName('h1')))
+  return world.driver
+    .wait(until.elementLocated(By.tagName('h1')))
     .then((node: selenium.WebElement) => node.getText())
     .then((text: string) => expect(text).to.have.string(expected));
 });
