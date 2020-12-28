@@ -13,5 +13,9 @@ module.exports = {
         devDependencies: true,
       },
     ],
+    '@typescript-eslint/indent': 'off',
+    'react/prop-types': 'off',
+    'react/no-unused-prop-types': 'off',
+    'react/require-default-props': 'off',
   },
 };
