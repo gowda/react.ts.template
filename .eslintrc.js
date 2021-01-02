@@ -17,5 +17,14 @@ module.exports = {
     'react/prop-types': 'off',
     'react/no-unused-prop-types': 'off',
     'react/require-default-props': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: false,
+      },
+    ],
   },
 };
