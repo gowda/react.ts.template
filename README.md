@@ -55,6 +55,12 @@ $ npm run test
 $ npm run features
 ```
 
+#### Run cypress tests
+
+```bash
+$ npm run cypress
+```
+
 ## License
 
 > "THE BEER-WARE LICENSE" (Revision 42):
