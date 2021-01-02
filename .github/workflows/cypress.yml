@@ -1,4 +1,4 @@
-name: features
+name: cypress
 
 on: [push]
 
