@@ -11,7 +11,7 @@
     "features": "start-server-and-test http://localhost:3000 cucumber",
     "cypress:run": "cypress run",
     "cypress": "start-server-and-test http://localhost:3000 cypress:run",
-    "test": "jest"
+    "test": "jest src"
   },
   "keywords": [],
   "repository": "github:gowda/react.ts.template",
