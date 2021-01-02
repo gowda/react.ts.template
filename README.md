@@ -38,16 +38,16 @@ Can be changed by updating [webpack.development.ts](webpack.development.ts#L12).
 $ npm run lint
 ```
 
+[ESLint](https://eslint.org/) is configured to extend from
+[eslint-config-airbnb-typescript](https://github.com/airbnb/javascript)
+
+Configuratin is in [.eslintrc.js](.eslintrc.js)
+
 #### Run unit tests
 
 ```bash
 $ npm run test
 ```
-
-[ESLint](https://eslint.org/) is configured to extend from
-[eslint-config-airbnb-typescript](https://github.com/airbnb/javascript)
-
-Configuratin is in [.eslintrc.js](.eslintrc.js)
 
 #### Run cucumber tests
 
