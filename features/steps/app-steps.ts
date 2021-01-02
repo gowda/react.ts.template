@@ -25,7 +25,7 @@ Given('I navigate to the url {string}', function (path: string) {
     .setChromeOptions(chromeOptions)
     .build();
 
-  return this.driver.get(`file://${__dirname}/../../dist/${path}`);
+  return this.driver.get(`http://localhost:3000/${path}`);
 });
 
 Then('I should see the text {string}', function (expected) {
