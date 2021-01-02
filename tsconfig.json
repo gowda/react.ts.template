@@ -23,9 +23,7 @@
     "sourceMap": true,
     "jsx": "react",
 
-    "typeRoots": [
-      "./types", "node_modules/@types"
-    ]
+    "typeRoots": ["./types", "node_modules/@types"]
   },
-  "exclude": ["./types", "node_modules"]
+  "exclude": ["./types", "node_modules", "./cypress"]
 }
