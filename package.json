@@ -20,6 +20,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
+    "@types/chai": "^4.2.19",
     "@types/copy-webpack-plugin": "^8.0.0",
     "@types/cucumber": "^6.0.1",
     "@types/html-webpack-plugin": "^3.2.5",
@@ -33,6 +34,7 @@
     "@types/webpack-merge": "^4.1.5",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "chai": "^4.3.4",
     "copy-webpack-plugin": "^8.1.1",
     "cucumber": "^6.0.5",
     "cypress": "^6.9.1",
