@@ -1,10 +1,14 @@
 import * as path from 'path';
-import { HotModuleReplacementPlugin, Configuration } from 'webpack';
+import { HotModuleReplacementPlugin, Configuration as WebpackConfiguration } from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import merge from 'webpack-merge';
-import WriteFilePlugin from 'write-file-webpack-plugin';
 import common from './webpack.common';
 
-const config: Configuration = merge(common, {
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration;
+}
+
+const config: Configuration = merge<Configuration>(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
@@ -15,7 +19,6 @@ const config: Configuration = merge(common, {
   },
   plugins: [
     new HotModuleReplacementPlugin(),
-    new WriteFilePlugin(),
   ],
 });
 

@@ -27,13 +27,8 @@ const config: Configuration = {
     filename: 'bundle.js',
   },
   plugins: [
-    new CopyPlugin([{ from: 'styles/**/*.css', to: 'css', flatten: true }]),
-    new HtmlWebpackPlugin(
-      process.env.NODE_ENV === 'test' ? {
-        base: `file://${__dirname}/dist/`,
-        template: 'src/index.ejs',
-      } : { template: 'src/index.ejs' },
-    ),
+    new CopyPlugin({patterns: [{ from: 'styles/**/*.css', to: 'css/[name][ext]' }]}),
+    new HtmlWebpackPlugin({template: 'src/index.ejs' }),
     new HtmlWebpackTagsPlugin({ tags: ['custom.css'], append: true, publicPath: '/css' }),
   ],
 };
