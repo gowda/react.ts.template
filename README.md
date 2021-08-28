@@ -1,7 +1,6 @@
 # react.ts.template
 
 ![](https://github.com/gowda/react.ts.template/workflows/lint-and-tests/badge.svg)
-![](https://github.com/gowda/react.ts.template/workflows/features/badge.svg)
 ![](https://github.com/gowda/react.ts.template/workflows/cypress/badge.svg)
 
 template for react application in typescript.
