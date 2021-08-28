@@ -33,5 +33,6 @@ module.exports = {
         depth: 3,
       },
     ],
+    'react/jsx-props-no-spreading': 'off',
   },
 };
