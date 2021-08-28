@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default () => (
-  <div className='container h-100'>
-    <div className='row h-100 align-items-center justify-content-center'>
-      <div className='col-auto'>
-        <h1 className='engraved'>Hello, world!</h1>
+import AuthorizeButton from './components/authorize-button';
+import SignoutButton from './components/signout-button';
+
+export default () => {
+  const [authorized, setAuthorized] = useState<boolean>(false);
+
+  return (
+    <div className='container'>
+      <div className='row mt-4'>
+        <h4 className='col-auto'>Supertiny calendar</h4>
+      </div>
+      <div className='row mt-4'>
+        <div className='col-auto'>
+          {authorized ? (
+            <SignoutButton onSuccess={() => setAuthorized(false)} />
+          ) : (
+            <AuthorizeButton onSuccess={() => setAuthorized(true)} />
+          )}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
