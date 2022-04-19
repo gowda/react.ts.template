@@ -48,12 +48,6 @@ Configuratin is in [.eslintrc.js](.eslintrc.js)
 $ npm run test
 ```
 
-#### Run cucumber tests
-
-```bash
-$ npm run features
-```
-
 #### Run cypress tests
 
 ```bash
