@@ -29,6 +29,7 @@ jobs:
           rm -rf src cypress types styles .github
           rm package.json package-lock.json README.md
           rm webpack.*.ts jest.config.js
+          rm .eslintignore .eslintrc.js .prettierrc cypress.json tsconfig.json tsconfig.webpack.json
       - name: Commit the changes
         run: |
           cd $GITHUB_WORKSPACE
