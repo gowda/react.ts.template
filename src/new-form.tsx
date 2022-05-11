@@ -9,6 +9,7 @@ export default () => {
 
   return (
     <input
+      data-testid='new-todo'
       className='new-todo no-focusborder'
       value={value}
       placeholder='What needs to be done?'
