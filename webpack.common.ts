@@ -1,7 +1,6 @@
 import * as path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
-import HtmlWebpackTagsPlugin from 'html-webpack-tags-plugin';
 import { Configuration } from 'webpack';
 
 const config: Configuration = {
@@ -27,9 +26,20 @@ const config: Configuration = {
     filename: 'bundle.js',
   },
   plugins: [
-    new CopyPlugin({patterns: [{ from: 'styles/**/*.css', to: 'css/[name][ext]' }]}),
-    new HtmlWebpackPlugin({template: 'src/index.ejs' }),
-    new HtmlWebpackTagsPlugin({ tags: ['custom.css'], append: true, publicPath: '/css' }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'styles/**/*.css', to: 'css/[name][ext]' },
+        {
+          from: 'node_modules/todomvc-common/*.css',
+          to: 'css/todomvc-common/[name][ext]',
+        },
+        {
+          from: 'node_modules/todomvc-app-css/*.css',
+          to: 'css/todomvc-app-css/[name][ext]',
+        },
+      ],
+    }),
+    new HtmlWebpackPlugin({ template: 'src/index.ejs' }),
   ],
 };
 

@@ -1,0 +1,11 @@
+.no-focusborder:focus {
+  outline-style: none;
+  box-shadow: none;
+}
+
+:focus,
+.toggle:focus + label,
+.toggle-all:focus + label {
+	box-shadow: 0 0 2px 2px transparent;
+	outline: 0;
+}

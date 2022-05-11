@@ -1,25 +1,33 @@
 import React, { useState } from 'react';
 
-import AuthorizeButton from './components/authorize-button';
-import SignoutButton from './components/signout-button';
+import Header from './header';
+import ToggleAllButton from './toggle-all-button';
+import List from './list';
+import ListFooter from './list/footer';
+import Footer from './footer';
+import { Filter } from './filter';
+import { useAllCount } from './queries';
 
 export default () => {
-  const [authorized, setAuthorized] = useState<boolean>(false);
+  const [filter, setFilter] = useState<Filter>('all');
+  const { data: count } = useAllCount();
 
   return (
-    <div className='container'>
-      <div className='row mt-4'>
-        <h4 className='col-auto'>Supertiny calendar</h4>
-      </div>
-      <div className='row mt-4'>
-        <div className='col-auto'>
-          {authorized ? (
-            <SignoutButton onSuccess={() => setAuthorized(false)} />
-          ) : (
-            <AuthorizeButton onSuccess={() => setAuthorized(true)} />
-          )}
-        </div>
-      </div>
-    </div>
+    <>
+      <section className='todoapp'>
+        <Header />
+        <section className='main'>
+          {count !== 0 && <ToggleAllButton />}
+          {count !== 0 && <List filter={filter} />}
+        </section>
+        {count !== 0 && (
+          <ListFooter
+            filter={filter}
+            onUpdateFilter={(change) => setFilter(change)}
+          />
+        )}
+      </section>
+      <Footer />
+    </>
   );
 };
