@@ -22,7 +22,6 @@ const config: Configuration = {
   resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: process.env.NODE_ENV === 'test' ? '' : '/',
     filename: 'bundle.js',
   },
   plugins: [
