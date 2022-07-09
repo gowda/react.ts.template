@@ -63,7 +63,7 @@ describe('todomvc', () => {
         cy.get('input.new-todo').type('{enter}');
 
         if (completed) {
-          cy.get('.todo-list > li input.toggle').last().click();
+          cy.get('.todo-list > li input.toggle').last().click({ force: true });
         }
       });
     });
