@@ -1,8 +1,5 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import {
-  HotModuleReplacementPlugin,
-  Configuration as WebpackConfiguration,
-} from 'webpack';
+import { Configuration as WebpackConfiguration } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import merge from 'webpack-merge';
 import common from './webpack.common';
@@ -21,10 +18,7 @@ const config: Configuration = merge<Configuration>(common, {
     },
     hot: true,
   },
-  plugins: [
-    new HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({ template: 'src/index.development.ejs' }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: 'src/index.development.ejs' })],
 });
 
 export default config;
