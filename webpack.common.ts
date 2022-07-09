@@ -1,5 +1,4 @@
 import * as path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { Configuration } from 'webpack';
 
@@ -38,7 +37,6 @@ const config: Configuration = {
         },
       ],
     }),
-    new HtmlWebpackPlugin({ template: 'src/index.ejs' }),
   ],
   externals: {
     react: 'React',
