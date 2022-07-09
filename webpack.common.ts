@@ -40,6 +40,11 @@ const config: Configuration = {
     }),
     new HtmlWebpackPlugin({ template: 'src/index.ejs' }),
   ],
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'react-query': 'ReactQuery',
+  },
 };
 
 export default config;
