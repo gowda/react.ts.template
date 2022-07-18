@@ -1,5 +1,6 @@
-/* eslint-disable jsx-a11y/no-autofocus */
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
+import React, { useState } from 'react';
+
+import Input from '../components/input';
 
 interface Props {
   title: string;
@@ -12,24 +13,15 @@ export default ({ title, onDismiss, onUpdate }: Props) => {
 
   return (
     <li className='editing'>
-      <input
+      <Input
         className='edit no-focusborder'
         value={value}
-        onChange={(event: ChangeEvent<HTMLInputElement>) =>
-          setValue(event.target.value)
-        }
-        onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
-          if (event.key === 'Escape') {
-            onDismiss();
-          }
+        onChange={(change: string) => setValue(change)}
+        onDiscard={onDismiss}
+        onCommit={() => {
+          onUpdate(value.trim());
+          onDismiss();
         }}
-        onKeyPress={(event: KeyboardEvent<HTMLInputElement>) => {
-          if (event.key === 'Enter') {
-            onUpdate(value.trim());
-            onDismiss();
-          }
-        }}
-        onBlur={onDismiss}
         autoFocus
       />
     </li>

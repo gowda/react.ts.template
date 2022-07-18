@@ -23,10 +23,10 @@ describe('App', () => {
       screen.getByPlaceholderText('What needs to be done?')
     ).toBeInTheDocument();
 
-    fireEvent.change(screen.getByTestId('new-todo'), {
+    fireEvent.change(screen.getByPlaceholderText('What needs to be done?'), {
       target: { value: 'Test todo' },
     });
-    fireEvent.keyPress(screen.getByTestId('new-todo'), {
+    fireEvent.keyPress(screen.getByPlaceholderText('What needs to be done?'), {
       key: 'Enter',
       code: 'Enter',
       charCode: 13,
