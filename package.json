@@ -4,7 +4,7 @@
   "description": "react application template in typescript",
   "main": "src/index.tsx",
   "scripts": {
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint src --ext .ts,.tsx",
     "build": "TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --mode production --config webpack.production.ts",
     "start": "TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack serve --mode development --config webpack.development.ts",
     "cypress:run": "cypress run",
