@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cp -va dist/bundle.js dist/css dist/index.html .

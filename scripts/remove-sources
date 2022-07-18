@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rm -rf src cypress types styles .github
+rm package.json package-lock.json README.md
+rm webpack.*.ts jest.config.js
+rm .eslintignore .eslintrc.js .prettierrc cypress.config.ts tsconfig.json tsconfig.webpack.json
