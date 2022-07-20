@@ -1,0 +1,8 @@
+{
+  "ignoreUnresolved": [],
+  "ignoreUnused": [
+    "todomvc-app-css",
+    "todomvc-common"
+  ],
+  "ignoreUnimported": []
+}
