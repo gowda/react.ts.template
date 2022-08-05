@@ -3,10 +3,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import { Configuration } from 'webpack';
 
 const config: Configuration = {
-  entry: {
-    js: './src/index.tsx',
-    css: './styles/index.scss',
-  },
+  entry: './src/index.tsx',
   module: {
     rules: [
       {
@@ -19,43 +16,17 @@ const config: Configuration = {
         test: /\.js$/,
         loader: 'source-map-loader',
       },
-      {
-        test: /\.(scss)$/,
-        use: [
-          {
-            loader: 'style-loader', // inject CSS to page
-          },
-          {
-            loader: 'css-loader', // translates CSS into CommonJS modules
-          },
-          {
-            loader: 'postcss-loader', // Run post css actions
-            options: {
-              postcssOptions: {
-                plugins: function () {
-                  // post css plugins, can be exported to postcss.config.js
-                  return [require('precss'), require('autoprefixer')];
-                },
-              },
-            },
-          },
-          {
-            loader: 'sass-loader', // compiles Sass to CSS
-          },
-        ],
-      },
     ],
   },
   resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: ({ chunk }) => {
-      return chunk?.name === 'js' ? 'bundle.js' : 'css/styles.css';
-    },
+    filename: 'bundle.js',
   },
   plugins: [
     new CopyPlugin({
       patterns: [
+        { from: 'styles/**/*.css', to: 'css/[name][ext]' },
         {
           from: 'node_modules/todomvc-common/*.css',
           to: 'css/todomvc-common/[name][ext]',
