@@ -26,7 +26,6 @@
     "@types/react-dom": "^16.9.13",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^3.11.3",
-    "@types/webpack-merge": "^4.1.5",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "copy-webpack-plugin": "^8.1.1",
@@ -53,7 +52,7 @@
     "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^4.8.1",
-    "webpack-merge": "^5.7.3"
+    "webpack-merge": "^5.8.0"
   },
   "resolutions": {
     "@types/webpack": "^5.28.0"

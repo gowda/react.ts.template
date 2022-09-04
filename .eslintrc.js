@@ -35,4 +35,12 @@ module.exports = {
     ],
     'react/jsx-props-no-spreading': 'off',
   },
+  overrides: [
+    {
+      files: ['webpack.*.ts'],
+      parserOptions: {
+        project: 'tsconfig.webpack.json',
+      },
+    },
+  ],
 };
