@@ -17,8 +17,8 @@ export default () => {
       <section className='todoapp'>
         <Header />
         <section className='main'>
-          {count !== 0 && <ToggleAllButton />}
-          {count !== 0 && <List filter={filter} />}
+          {count !== 0 ? <ToggleAllButton /> : null}
+          {count !== 0 ? <List filter={filter} /> : null}
         </section>
         {count !== 0 && (
           <ListFooter

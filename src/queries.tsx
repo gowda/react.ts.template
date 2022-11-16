@@ -66,6 +66,7 @@ export const useClearCompletedMutation = () => {
     clearCompletedTodos().then(() => {
       queryClient.invalidateQueries('todos');
       queryClient.invalidateQueries('active-count');
+      queryClient.invalidateQueries('all-count');
     })
   );
 };

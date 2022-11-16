@@ -229,6 +229,115 @@ describe('todomvc', () => {
     });
   });
 
+  context('when only completed todos are present', () => {
+    const completedTodos = [
+      { id: '001', title: 'Test todo 001', completed: true },
+      { id: '002', title: 'Test todo 002', completed: true },
+      { id: '003', title: 'Test todo 003', completed: true },
+    ];
+    beforeEach(() => {
+      cy.visit(url);
+      completedTodos.forEach(({ title, completed }) => {
+        cy.get('input.new-todo').type(title);
+        cy.get('input.new-todo').type('{enter}');
+
+        if (completed) {
+          cy.get('.todo-list > li input.toggle').last().click({ force: true });
+        }
+      });
+    });
+
+    it('shows toggle all button', () => {
+      cy.get('input.toggle-all').should('exist');
+    });
+
+    context('footer', () => {
+      it('shows active todo count as 0', () => {
+        cy.get('footer.footer > span.todo-count').should(
+          'have.text',
+          '0 items left'
+        );
+      });
+
+      context('filter', () => {
+        it('"Active" list is empty', () => {
+          cy.get('footer.footer > ul.filters > li > a')
+            .contains('Active')
+            .click();
+
+          cy.get('footer.footer > ul.filters > li > a.selected').should(
+            'have.text',
+            'Active'
+          );
+
+          cy.get('.todo-list li').should('not.exist');
+        });
+
+        it('"Completed" shows all todos', () => {
+          cy.get('footer.footer > ul.filters > li > a')
+            .contains('Completed')
+            .click();
+
+          cy.get('footer.footer > ul.filters > li > a.selected').should(
+            'have.text',
+            'Completed'
+          );
+          cy.get('.todo-list li').should('have.length', completedTodos.length);
+          completedTodos.forEach(({ title }) =>
+            cy.get('.todo-list li').contains(title).should('be.visible')
+          );
+        });
+
+        it('"All" shows all todos', () => {
+          cy.get('footer.footer > ul.filters > li > a')
+            .contains('Completed')
+            .click();
+          cy.get('footer.footer > ul.filters > li > a').contains('All').click();
+          cy.get('footer.footer > ul.filters > li > a.selected').should(
+            'have.text',
+            'All'
+          );
+          cy.get('.todo-list li').should('have.length', completedTodos.length);
+        });
+      });
+
+      it('clears completed on clicking "Clear completed"', () => {
+        cy.get('button').contains('Clear completed').click();
+
+        cy.get('.todo-list li').should('not.exist');
+      });
+
+      it('does not show footer on clicking "Clear completed"', () => {
+        cy.get('button').contains('Clear completed').click();
+
+        cy.get('footer.footer').should('not.exist');
+      });
+    });
+
+    it('shows form', () => {
+      cy.get('input.new-todo').should('be.visible');
+    });
+
+    it('allows creation of new todo', () => {
+      cy.get('input.new-todo').type('Test todo');
+      cy.get('input.new-todo').type('{enter}');
+
+      cy.get('.todo-list li')
+        .should('have.length', 4)
+        .last()
+        .should('have.text', 'Test todo');
+    });
+
+    it('does not create new todo on typing & escape', () => {
+      cy.get('input.new-todo').type('Test todo');
+      cy.get('input.new-todo').type('{esc}');
+
+      cy.get('input.new-todo').should('have.value', '');
+
+      cy.get('.todo-list li').should('have.length', 3);
+    });
+  });
+
   describe('todo item', () => {
     const todos = [
       { id: '001', title: 'Test todo 001', completed: false },
